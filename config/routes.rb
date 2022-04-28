@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'location/index'
+  get 'location/show'
   get 'technician/index'
   get 'technician/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
