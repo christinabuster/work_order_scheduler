@@ -15,23 +15,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_28_043905) do
   enable_extension "plpgsql"
 
   create_table "locations", force: :cascade do |t|
-    t.string "name"
+    t.string "location_id"
     t.string "city"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "technicians", force: :cascade do |t|
-    t.string "first_name"
-    t.integer "user_id"
+    t.string "technician_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+    t.string "location_id"
+    t.string "city"
+    t.string "technician_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "work_orders", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "technician_id"
+    t.float "price"
+    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
